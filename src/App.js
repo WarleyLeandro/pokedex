@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Card from "./components/Card";
+import Card from "./components/Card/Card";
 import "./index.css";
-import { ContainerCenter, RowStyled, Header } from "./styles";
+import { ContainerCenter, RowStyled, Header, ButtonStyled } from "./styles";
 
 const App = () => {
   const [pokemons, setPokemons] = useState([]);
@@ -12,7 +12,6 @@ const App = () => {
   const getAllPokemons = async () => {
     const res = await fetch(loadMore);
     const data = await res.json();
-    console.log(data);
     setLoadMore(data.next);
 
     const newPokemons = [];
@@ -20,8 +19,7 @@ const App = () => {
     for (let pokemon of data.results) {
       newPokemons.push(await fetchData(pokemon.name));
     }
-    console.log(newPokemons);
-    setPokemons(newPokemons);
+    setPokemons(pokemons => [...pokemons, ...newPokemons]);
   };
 
   const fetchData = async (pokemonName) => {
@@ -56,6 +54,7 @@ const App = () => {
               );
             })}
         </RowStyled>
+        <ButtonStyled onClick={()=> getAllPokemons()}> Ver mais</ButtonStyled>
       </ContainerCenter>
     </div>
   );

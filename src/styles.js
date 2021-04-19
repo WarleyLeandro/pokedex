@@ -15,6 +15,7 @@ export const Container = styled.div`
 export const ContainerCenter = styled(Container)`
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 `;
 
 export const Header = styled(Container)`
@@ -30,8 +31,8 @@ export const ButtonStyled = styled.button`
   border-radius: 6px;
   padding: 15px 32px;
   font-size: 12px;
-  background-color: #f44336;
-  color: #fbfbfb;
+  background-color: #fbfbfb;
+  color: gray;
 `;
 
 export const ItemStyled = styled.div`
@@ -43,7 +44,6 @@ export const ItemStyled = styled.div`
   border: 3px solid white;
   color: grey;
   background-color: ${props => habitatColor[props.type] || '#ffffff'};
-
   display: flex;
   justify-content: center;
 `;

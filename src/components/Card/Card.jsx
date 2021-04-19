@@ -1,5 +1,5 @@
 import React from "react";
-import { ContainerCard, InfoCard, ImgCard, ItemStyled } from "../styles";
+import { ContainerCard, InfoCard, ImgCard, ItemStyled } from "../../styles";
 
 const Card = ({ id, image, name, type }) => {
   return (
