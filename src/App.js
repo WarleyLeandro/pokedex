@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Card from "./components/Card";
 import "./index.css";
-import { ContainerCenter, ItenStyled, RowStyled, Header } from "./styles";
+import { ContainerCenter, RowStyled, Header } from "./styles";
 
 const App = () => {
   const [pokemons, setPokemons] = useState([]);
@@ -15,20 +15,20 @@ const App = () => {
     console.log(data);
     setLoadMore(data.next);
 
-    function createPokemonObject(results) {
-      results.forEach(async (pokemon) => {
-        const res = await fetch(
-          `https://pokeapi.co/api/v2/pokemon/${pokemon.name}`
-        );
-        const data = await res.json();
-        console.log(data)
-        const newPokemon = [...pokemons, data];
-        setPokemons(newPokemon);
-        pokemons.sort((a, b) => a.id - b.id);
-      });
-      console.log(pokemons);
+    const newPokemons = [];
+
+    for (let pokemon of data.results) {
+      newPokemons.push(await fetchData(pokemon.name));
     }
-    createPokemonObject(data.results);
+    console.log(newPokemons);
+    setPokemons(newPokemons);
+  };
+
+  const fetchData = async (pokemonName) => {
+    const response = await fetch(
+      `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
+    );
+    return response.json();
   };
 
   useEffect(() => {
@@ -46,15 +46,13 @@ const App = () => {
           {pokemons.length &&
             pokemons.map((pokemon, index) => {
               return (
-                <ItenStyled>
-                  <Card
-                    key={index}
-                    id={pokemon.id}
-                    image={pokemon.sprites.other.dream_world.front_default}
-                    name={pokemon.name}
-                    type={pokemon.types[0].type.name}
-                  />
-                </ItenStyled>
+                <Card
+                  key={index}
+                  id={pokemon.id}
+                  image={pokemon.sprites.other.dream_world.front_default}
+                  name={pokemon.name}
+                  type={pokemon.types[0].type.name}
+                />
               );
             })}
         </RowStyled>

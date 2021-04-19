@@ -31,22 +31,18 @@ export const ButtonStyled = styled.button`
   padding: 15px 32px;
   font-size: 12px;
   background-color: #f44336;
-  color: #FBFBFB;
+  color: #fbfbfb;
 `;
 
-export const B = styled(ButtonStyled)`
-  background-color: blue;
-`;
-
-export const ItenStyled = styled.div`
+export const ItemStyled = styled.div`
   margin: 10px;
   padding: 4px;
   width: 250px;
   height: 250px;
-  border-radius: 3px;
+  border-radius: 8px;
   border: 3px solid white;
   color: grey;
-  background-color: white;
+  background-color: white; // ${props => habitatColor.props};
 
   display: flex;
   justify-content: center;
@@ -59,16 +55,23 @@ export const RowStyled = styled.div`
   justify-content: center;
 `;
 
-
-export const ContainerCard = styled.div`
+export const ImgCard = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-   img {
-     max-width: 200px;
-   }
+  img {
+    max-width: 200px;
+    max-height: 180px;
+  }
 `;
+
+export const ContainerCard = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  `;
 
 export const InfoCard = styled.div`
   display: flex;
@@ -76,5 +79,17 @@ export const InfoCard = styled.div`
   align-items: center;
   align-content: flex-end;
   flex-direction: column;
-
 `;
+
+const habitatColor = {
+  //rock: rgb(148, 81, 81),
+  //ghost: rgb(247, 247, 247),
+  //electric: rgb(255, 255, 161),
+  bug: '#F6D6A7',
+  poison: '#e0a7f6',
+  normal: '#F4F4F4',
+  //fairy: rgba(255, 192, 203, 0.863),
+  fire: '#FBE3DF',
+  grass: '#E2F9E1',
+  water: '#E0F1FD'
+};

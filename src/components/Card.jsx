@@ -1,18 +1,20 @@
 import React from "react";
-import {ContainerCard, InfoCard} from '../styles';
+import { ContainerCard, InfoCard, ImgCard, ItemStyled } from "../styles";
 
-const Card = ({id, image, name, type}) => {
+const Card = ({ id, image, name, type }) => {
   return (
-    <ContainerCard>
-      <div> # {id} </div>
-      
-        <img src={image} alt={name} />
-      
-      <InfoCard>
-        <h3> {name}</h3>
-        <span> Tipo: {type}</span>
-      </InfoCard>
-    </ContainerCard>
+    <ItemStyled type>
+      <ContainerCard>
+        <div> # {id} </div>
+        <ImgCard>
+          <img src={image} alt={name} />
+        </ImgCard>
+        <InfoCard>
+          <h3> {name}</h3>
+          <span> Tipo: {type}</span>
+        </InfoCard>
+      </ContainerCard>
+    </ItemStyled>
   );
 };
 
