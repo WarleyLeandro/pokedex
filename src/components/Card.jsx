@@ -3,7 +3,7 @@ import { ContainerCard, InfoCard, ImgCard, ItemStyled } from "../styles";
 
 const Card = ({ id, image, name, type }) => {
   return (
-    <ItemStyled type>
+    <ItemStyled type={type}>
       <ContainerCard>
         <div> # {id} </div>
         <ImgCard>

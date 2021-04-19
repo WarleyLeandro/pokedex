@@ -42,7 +42,7 @@ export const ItemStyled = styled.div`
   border-radius: 8px;
   border: 3px solid white;
   color: grey;
-  background-color: white; // ${props => habitatColor.props};
+  background-color: ${props => habitatColor[props.type] || '#ffffff'};
 
   display: flex;
   justify-content: center;
@@ -82,14 +82,17 @@ export const InfoCard = styled.div`
 `;
 
 const habitatColor = {
-  //rock: rgb(148, 81, 81),
-  //ghost: rgb(247, 247, 247),
-  //electric: rgb(255, 255, 161),
   bug: '#F6D6A7',
-  poison: '#e0a7f6',
-  normal: '#F4F4F4',
-  //fairy: rgba(255, 192, 203, 0.863),
+  electric: 'rgb(255, 255, 161)',
+  fairy: 'rgba(255, 192, 203, 0.863)',
   fire: '#FBE3DF',
+  fighting: '#F0FFF0',
+  ghost: 'rgb(247, 247, 247)',
   grass: '#E2F9E1',
-  water: '#E0F1FD'
+  ground: '#D2B48C',
+  normal: '#F4F4F4',
+  poison: '#E0A7F6',  
+  psychic: '#DDA0DD',
+  rock: '#DEB887',
+  water: '#E0F1FD',
 };
