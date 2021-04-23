@@ -12,6 +12,13 @@ export const Container = styled.div`
   color: white;
 `;
 
+export const ContainerCard = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+`;
+
 export const ContainerCenter = styled(Container)`
   align-items: center;
   justify-content: center;
@@ -31,7 +38,8 @@ export const ButtonStyled = styled.button`
   border-radius: 6px;
   padding: 15px 32px;
   font-size: 12px;
-  background-color: #fbfbfb;
+  border: 1px solid gray;
+  background-color: ${(props) => habitatColor[props.type] || "#fbfbfb"};
   color: gray;
 `;
 
@@ -43,9 +51,44 @@ export const ItemStyled = styled.div`
   border-radius: 8px;
   border: 3px solid white;
   color: grey;
-  background-color: ${props => habitatColor[props.type] || '#ffffff'};
+  background-color: ${(props) => habitatColor[props.type] || "#ffffff"};
   display: flex;
   justify-content: center;
+`;
+
+export const InfoContainer = styled.div`
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    background-color: #fbfbfb;
+    h2 {
+      color: gray;
+    }
+`;
+
+export const InfoStyled = styled.div`
+
+  margin: 10px;
+  padding: 4px;
+  width: 60%;
+  height: 40%;
+  border-radius: 8px;
+  border: 2px solid white;
+  color: grey;
+  background-color: ${(props) => habitatColor[props.type] || "#ffffff"};
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  @media (max-width: 720px) {
+    flex-direction: column;
+    width: 80%;
+    height: 60%;
+  }
+
 `;
 
 export const RowStyled = styled.div`
@@ -66,13 +109,6 @@ export const ImgCard = styled.div`
   }
 `;
 
-export const ContainerCard = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: column;
-  `;
-
 export const InfoCard = styled.div`
   display: flex;
   justify-content: center;
@@ -81,18 +117,25 @@ export const InfoCard = styled.div`
   flex-direction: column;
 `;
 
+export const InfoPokemon = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+`;
+
 const habitatColor = {
-  bug: '#F6D6A7',
-  electric: 'rgb(255, 255, 161)',
-  fairy: 'rgba(255, 192, 203, 0.863)',
-  fire: '#FBE3DF',
-  fighting: '#F0FFF0',
-  ghost: 'rgb(247, 247, 247)',
-  grass: '#E2F9E1',
-  ground: '#D2B48C',
-  normal: '#F4F4F4',
-  poison: '#E0A7F6',  
-  psychic: '#DDA0DD',
-  rock: '#DEB887',
-  water: '#E0F1FD',
+  bug: "#F6D6A7",
+  electric: "rgb(255, 255, 161)",
+  fairy: "rgba(255, 192, 203, 0.863)",
+  fire: "#FBE3DF",
+  fighting: "#F0FFF0",
+  ghost: "rgb(247, 247, 247)",
+  grass: "#E2F9E1",
+  ground: "#D2B48C",
+  normal: "#F4F4F4",
+  poison: "#E0A7F6",
+  psychic: "#DDA0DD",
+  rock: "#DEB887",
+  water: "#E0F1FD",
 };

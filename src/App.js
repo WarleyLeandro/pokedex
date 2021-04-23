@@ -1,38 +1,11 @@
-import React, { useState, useEffect } from "react";
-import Card from "./components/Card/Card";
+import React from "react";
 import "./index.css";
 import { ContainerCenter, RowStyled, Header, ButtonStyled } from "./styles";
+import Card from "./components/Card";
+import { usePokemons } from './context/ContextData';
 
-const App = () => {
-  const [pokemons, setPokemons] = useState([]);
-  const [loadMore, setLoadMore] = useState(
-    "https://pokeapi.co/api/v2/pokemon?limit=20"
-  );
-
-  const getAllPokemons = async () => {
-    const res = await fetch(loadMore);
-    const data = await res.json();
-    setLoadMore(data.next);
-
-    const newPokemons = [];
-
-    for (let pokemon of data.results) {
-      newPokemons.push(await fetchData(pokemon.name));
-    }
-    setPokemons(pokemons => [...pokemons, ...newPokemons]);
-  };
-
-  const fetchData = async (pokemonName) => {
-    const response = await fetch(
-      `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
-    );
-    return response.json();
-  };
-
-  useEffect(() => {
-    getAllPokemons();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+const Home = () => {
+  const {pokemons, getAllPokemons} = usePokemons();
   return (
     <div className="App">
       <Header>
@@ -54,10 +27,10 @@ const App = () => {
               );
             })}
         </RowStyled>
-        <ButtonStyled onClick={()=> getAllPokemons()}> Ver mais</ButtonStyled>
+        <ButtonStyled onClick={() => getAllPokemons()}> Ver mais</ButtonStyled>
       </ContainerCenter>
     </div>
   );
 };
 
-export default App;
+export default Home;
