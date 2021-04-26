@@ -28,7 +28,13 @@ export const ContainerCenter = styled(Container)`
 export const Header = styled(Container)`
   height: 80px;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  @media (max-width: 720px) {
+    flex-direction: column;
+    padding-top: 20px;
+    gap: 3px;
+  }
 `;
 
 export const ButtonStyled = styled.button`
@@ -82,11 +88,30 @@ export const InfoStyled = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
+  h1, h2 {
+    font-family: Comic Sans MS, Comic Sans, cursive;
+  }
+@media (min-width: 720px) {
+  h1 {
+    display: none;
+  }
+  h2 {
+    padding-bottom: 12px;
+  }
+
+}
+
 
   @media (max-width: 720px) {
     flex-direction: column;
     width: 80%;
     height: 60%;
+    h1 {
+      order: -1;
+    }
+    h2 {
+      display: none;
+    }
   }
 
 `;
@@ -122,6 +147,16 @@ export const InfoPokemon = styled.div`
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+`;
+
+export const SearchBar = styled.input`
+  border: none;
+  border-radius: 3px;
+  text-decoration:none;
+  height: 30px;
+  padding-left: 8px;
+  padding-right: 8px;
+  color: gray;
 `;
 
 const habitatColor = {

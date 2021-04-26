@@ -1,21 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import "./index.css";
-import { ContainerCenter, RowStyled, Header, ButtonStyled } from "./styles";
+import {
+  ContainerCenter,
+  RowStyled,
+  Header,
+  ButtonStyled,
+  SearchBar,
+} from "./styles";
 import Card from "./components/Card";
-import { usePokemons } from './context/ContextData';
+import { usePokemons } from "./context/ContextData";
 
 const Home = () => {
-  const {pokemons, getAllPokemons} = usePokemons();
+  const { pokemons, getAllPokemons } = usePokemons();
+  const [searchPokemon, setSearchPokemon] = useState();
+
+  //const searchPokemonUp = searchPokemon.toLowerCase();
+
+  const foundPokemon = pokemons.filter((pokemon) =>
+    pokemon.name.includes(searchPokemon)
+  );
+
+  const allPokemons = foundPokemon.length ? foundPokemon : pokemons;
+
   return (
     <div className="App">
       <Header>
         <h1> POKEDEX </h1>
-      </Header>
+        <SearchBar
+          type="text"
+          value={searchPokemon}
+          placeholder="Buscar pokemon"
+          onChange={(ev) => setSearchPokemon(ev.target.value)}
+        />
 
+      </Header>
+  
       <ContainerCenter>
         <RowStyled>
-          {pokemons.length &&
-            pokemons.map((pokemon, index) => {
+          {allPokemons.length &&
+            allPokemons.map((pokemon, index) => {
               return (
                 <Card
                   key={index}

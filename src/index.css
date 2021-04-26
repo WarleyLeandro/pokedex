@@ -5,12 +5,22 @@
   font-family: sans-serif;
 }
 
+body {
+  background: linear-gradient(
+    to right,
+    rgb(53, 92, 125),
+    rgb(108, 91, 123),
+    rgb(192, 108, 132)
+  );
+}
+
 h1 {
   font-size: 2rem;
 }
 
 h2 {
   font-size: 1.5rem;
+  
 }
 
 button {
