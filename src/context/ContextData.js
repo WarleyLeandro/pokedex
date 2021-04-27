@@ -5,7 +5,7 @@ const pokemonsContext = createContext();
 export default function PokemonsProvider({ children }) {
   const [pokemons, setPokemons] = useState([]);
   const [loadMore, setLoadMore] = useState(
-    "https://pokeapi.co/api/v2/pokemon?limit=20"
+    "https://pokeapi.co/api/v2/pokemon"
   );
 
   const getAllPokemons = async () => {

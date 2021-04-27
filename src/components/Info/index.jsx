@@ -3,11 +3,11 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import {
   InfoStyled,
-  ImgCard,
+  InfoImg,
   InfoPokemon,
   InfoContainer,
   ButtonStyled,
-} from "../../styles";
+} from "./styles";
 import { usePokemons } from "../../context/ContextData";
 
 const Info = () => {
@@ -18,19 +18,19 @@ const Info = () => {
   return pokemon ? (
     <InfoContainer>
       <InfoStyled type={pokemon.types[0].type.name}>
-        <ImgCard>
+        <InfoImg>
           <img
             src={pokemon.sprites.other.dream_world.front_default}
             alt={"informações"}
           />
-        </ImgCard>
+        </InfoImg>
 
         <h1>{pokemon.name} </h1>
 
         <InfoPokemon>
           <h2>{pokemon.name} </h2>
           <span>Peso: {pokemon.weight}</span>
-          <span>Peso: {pokemon.weight}</span>
+          <span>Altura: {pokemon.height}</span>
           <span>Peso: {pokemon.weight}</span>
           <span>Peso: {pokemon.weight}</span>
         </InfoPokemon>

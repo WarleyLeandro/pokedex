@@ -24,7 +24,7 @@ const Home = () => {
 
   return (
     <div className="App">
-      <Header>
+      <Header  id="home">
         <h1> POKEDEX </h1>
         <SearchBar
           type="text"

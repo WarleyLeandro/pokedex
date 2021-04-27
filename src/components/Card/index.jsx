@@ -4,8 +4,8 @@ import {
   ContainerCard,
   InfoCard,
   ImgCard,
-  ItemStyled,
-} from "../../styles";
+  ItemCard,
+} from "./styles";
 
 const Card = ({ id, image, name, type }) => {
   let history = useHistory();
@@ -14,7 +14,7 @@ const Card = ({ id, image, name, type }) => {
     history.push(`/info/${id}`);
   }
   return (
-    <ItemStyled type={type} onClick={handleClick}>
+    <ItemCard type={type} onClick={handleClick}>
       <ContainerCard>
         <div> # {id} </div>
         <ImgCard>
@@ -26,7 +26,7 @@ const Card = ({ id, image, name, type }) => {
         </InfoCard>
       </ContainerCard>
       
-    </ItemStyled>
+    </ItemCard>
   );
 };
 
